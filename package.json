@@ -1,7 +1,7 @@
 {
   "name": "@barejs/graphql-observable",
   "private": false,
-  "version": "0.1.0",
+  "version": "3.0.0",
   "description": "GraphQL observable clients for the Python bareASGI web toolkit",
   "keywords": [
     "graphql",
@@ -25,6 +25,7 @@
     "neutrino": "^8.3.0"
   },
   "dependencies": {
+    "@barejs/graphql-client": "^3.0.0",
     "rxjs": "^6.5.2"
   }
 }
