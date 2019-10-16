@@ -8,17 +8,17 @@ observable library.
 
 ### Subscriptions
 
-The `graphqlSubscribe` function used be used for subscriptions.
+The `graphqlObservableWsSubscriber` function used be used for subscriptions.
 
 ```js
-import { graphqlSubscribe } from '@barejs/graphql-observable'
+import { graphqlObservableWsSubscriber } from '@barejs/graphql-observable'
 
-const url = 'http://www.example.com/sse-subscription'
+const url = 'http://www.example.com/subscriptions'
 const query = 'subscription { someSubscription { someField someOtherField } }'
 const variables = null
 const operationName = null
 
-subscription = graphqlSubscribe(url, query, variables, operationName).subscribe({
+subscription = graphqlObservableWsSubscriber(url, query, variables, operationName).subscribe({
   next: data => console.log(data),
   error: error => console.error(error),
   complete: () => console.log('Completed')
@@ -27,10 +27,10 @@ subscription = graphqlSubscribe(url, query, variables, operationName).subscribe(
 
 ### Queries, Mutations and Subscriptions
 
-The `graphqlObserve` can be used for queries, mutations, and subscriptions.
+The `graphqlObservableWsClient` can be used for queries, mutations, and subscriptions.
 
 ```js
-import { graphqlObserve } from '@barejs/graphql-observable'
+import { graphqlObservableWsClient } from '@barejs/graphql-observable'
 
 const url = 'http://www.example.com/graphql'
 
@@ -39,7 +39,7 @@ const query = 'subscription { someSubscription { someField someOtherField } }'
 const variables = null
 const operationName = null
 
-const subscription = graphqlObserve(
+const subscription = graphqlObservableWsClient(
   url,
   query,
   variables,
@@ -53,3 +53,18 @@ const subscription = graphqlObserve(
 // Later ...
 subscription.unsubscribe()
 ```
+
+### Other transports
+
+In addition to the fetch/WebSocket transports there is support for `EventSource` and streaming fetch, although these are only supported by the bareASGI web framework.
+
+The following functions are available:
+
+*  graphqlObservableEventSourceClient,
+*  graphqlObservableEventSourceSubscriber,
+*  graphqlObservableFetchClient,
+*  graphqlObservableStreamClient,
+*  graphqlObservableWsClient,
+*  graphqlObservableWsSubscriber
+
+All of the clients abd subscribers take the same arguments as the WebSocket variant.
