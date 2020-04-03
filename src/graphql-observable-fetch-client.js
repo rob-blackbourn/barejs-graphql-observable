@@ -5,13 +5,12 @@ export default function graphqlObservableFetchClient (url, init, query, variable
   return Observable.create(observer => {
     const abortController = new AbortController()
 
-    const init = {
-      signal: abortController.signal
-    }
-
     graphqlFetchClient(
       url,
-      init,
+      {
+        signal: abortController.signal,
+        ...init
+      },
       query,
       variables,
       operationName,

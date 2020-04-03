@@ -1,10 +1,11 @@
 import { Observable } from 'rxjs'
 import { graphqlStreamClient } from '@barejs/graphql-client'
 
-export default function graphqlObservableStreamClient (url, query, variables, operation) {
+export default function graphqlObservableStreamClient (url, init, query, variables, operation) {
   return Observable.create(observer => {
     return graphqlStreamClient(
       url,
+      init,
       query,
       variables,
       operation,

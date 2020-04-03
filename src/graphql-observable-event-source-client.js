@@ -1,10 +1,11 @@
 import { Observable } from 'rxjs'
 import { graphqlEventSourceClient } from '@barejs/graphql-client'
 
-export default function graphqlObservableEventSourceClient (url, query, variables, operationName, onNext, onError, onComplete) {
+export default function graphqlObservableEventSourceClient (url, init, query, variables, operationName, onNext, onError, onComplete) {
   return Observable.create(observer => {
     return graphqlEventSourceClient(
       url,
+      init,
       query,
       variables,
       operationName,

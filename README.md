@@ -14,11 +14,13 @@ The `graphqlObservableWsSubscriber` function used be used for subscriptions.
 import { graphqlObservableWsSubscriber } from '@barejs/graphql-observable'
 
 const url = 'http://www.example.com/subscriptions'
+const init = {}
+
 const query = 'subscription { someSubscription { someField someOtherField } }'
 const variables = null
 const operationName = null
 
-subscription = graphqlObservableWsSubscriber(url, query, variables, operationName).subscribe({
+subscription = graphqlObservableWsSubscriber(url, init, query, variables, operationName).subscribe({
   next: data => console.log(data),
   error: error => console.error(error),
   complete: () => console.log('Completed')
@@ -33,6 +35,7 @@ The `graphqlObservableWsClient` can be used for queries, mutations, and subscrip
 import { graphqlObservableWsClient } from '@barejs/graphql-observable'
 
 const url = 'http://www.example.com/graphql'
+const init = {}
 
 // This could be a query, mutation or subscription.
 const query = 'subscription { someSubscription { someField someOtherField } }'
@@ -41,6 +44,7 @@ const operationName = null
 
 const subscription = graphqlObservableWsClient(
   url,
+  init,
   query,
   variables,
   operationName)
