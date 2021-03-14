@@ -1,16 +1,16 @@
 import { Observable } from 'rxjs'
 import { graphqlWsClient } from '@barejs/graphql-client'
 
-export default function graphqlObservableWsClient (url, init, query, variables, operationName, onNext, onError, onComplete) {
-  return Observable.create(observer => {
+export default function graphqlObservableWsClient (url, init, query, variables, operationName) {
+  return new Observable(subscriber => {
     return graphqlWsClient(
       url,
       init,
       query,
       variables,
       operationName,
-      response => observer.next(response),
-      error => observer.error(error),
-      () => observer.complete())
+      response => subscriber.next(response),
+      error => subscriber.error(error),
+      () => subscriber.complete())
   })
 }

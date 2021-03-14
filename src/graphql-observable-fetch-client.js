@@ -2,7 +2,7 @@ import { Observable } from 'rxjs'
 import { graphqlFetchClient } from '@barejs/graphql-client'
 
 export default function graphqlObservableFetchClient (url, init, query, variables, operationName) {
-  return Observable.create(observer => {
+  return new Observable(subscriber => {
     const abortController = new AbortController()
 
     graphqlFetchClient(
@@ -14,10 +14,10 @@ export default function graphqlObservableFetchClient (url, init, query, variable
       query,
       variables,
       operationName,
-      error => observer.error(error),
+      error => subscriber.error(error),
       response => {
-        observer.next(response)
-        observer.complete()
+        subscriber.next(response)
+        subscriber.complete()
       })
 
     return () => abortController.abort()

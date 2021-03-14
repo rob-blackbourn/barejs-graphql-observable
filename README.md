@@ -1,8 +1,19 @@
 # @barejs/graphql-observable
 
-This is a simple observable GraphQL client written specifically to support the
-[bareASGI GraphQL middleware](https://bareasgi-graphql-next.readthedocs.io/en/latest/index.html#). It uses the [rxjs](https://rxjs-dev.firebaseapp.com/) 
+This is a collection of observable GraphQL clients which support queries, mutations and subscriptions.
+It uses the
+[rxjs](https://rxjs-dev.firebaseapp.com/) 
 observable library.
+
+It specifically targets the 
+[bareASGI GraphQL](https://github.com/rob-blackbourn/bareASGI-graphql-next)
+module from the
+[bareASGI](https://github.com/rob-blackbourn/bareASGI)
+python web framework, which provides multiple transports for subscriptions.
+
+Thi is a thin wrapper around
+[@barejs/graphql-client](https://github.com/rob-blackbourn/barejs-graphql-client)
+where more documentation can be found.
 
 ## Usage
 
