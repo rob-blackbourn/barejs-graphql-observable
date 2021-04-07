@@ -1,7 +1,7 @@
 {
   "name": "@barejs/graphql-observable",
   "private": false,
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "GraphQL observable clients for the Python bareASGI web toolkit",
   "keywords": [
     "graphql",
@@ -20,7 +20,7 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "@barejs/graphql-client": "^5.0.4",
+    "@barejs/graphql-client": "^5.0.5",
     "rxjs": "^6.5.2"
   },
   "devDependencies": {
