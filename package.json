@@ -20,7 +20,7 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "@barejs/graphql-client": "^5.0.10",
+    "@barejs/graphql-client": "^5.0.11",
     "rxjs": "^6.5.2"
   },
   "devDependencies": {
