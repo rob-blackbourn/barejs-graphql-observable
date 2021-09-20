@@ -1,7 +1,13 @@
 import { Observable } from 'rxjs'
 import { graphqlEventSourceSubscriber } from '@barejs/graphql-client'
 
-export default function graphqlObservableEventSourceSubscriber (url, init, query, variables, operationName) {
+export default function graphqlObservableEventSourceSubscriber(
+  url,
+  init,
+  query,
+  variables,
+  operationName
+) {
   return new Observable(subscriber => {
     return graphqlEventSourceSubscriber(
       url,
@@ -11,6 +17,7 @@ export default function graphqlObservableEventSourceSubscriber (url, init, query
       operationName,
       response => subscriber.next(response),
       error => subscriber.error(error),
-      () => subscriber.complete())
+      () => subscriber.complete()
+    )
   })
 }
