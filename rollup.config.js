@@ -1,3 +1,4 @@
+import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
@@ -5,7 +6,7 @@ import commonjs from '@rollup/plugin-commonjs'
 export default [
   // browser-friendly UMD build
   {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     output: [
       {
         name: 'observableGraphqlClient',
@@ -20,12 +21,18 @@ export default [
         plugins: [terser()]
       }
     ],
-    plugins: [resolve(), commonjs()]
+    plugins: [
+      typescript({
+        typescript: require('typescript')
+      }),
+      resolve(),
+      commonjs()
+    ]
   },
 
   // CommonJS (for Node) and ES module (for bundlers) build.
   {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     external: ['rxjs', '@barejs/graphql-client'],
     output: [
       {
@@ -36,6 +43,11 @@ export default [
         file: 'dist/cjs/index.js',
         format: 'cjs'
       }
+    ],
+    plugins: [
+      typescript({
+        typescript: require('typescript')
+      })
     ]
   }
 ]
