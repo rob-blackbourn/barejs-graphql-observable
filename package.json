@@ -1,7 +1,7 @@
 {
   "name": "@barejs/graphql-observable",
   "private": false,
-  "version": "5.0.6",
+  "version": "6.0.0-rc1",
   "description": "GraphQL observable clients for the Python bareASGI web toolkit",
   "keywords": [
     "graphql",
@@ -11,6 +11,7 @@
     "rxjs"
   ],
   "main": "dist/index.js",
+  "module": "dist/index.ems.js",
   "repository": "git@github.com:rob-blackbourn/barejs-graphql-observable.git",
   "homepage": "https://github.com/rob-blackbourn/barejs-graphql-observable",
   "author": "Rob Blackbourn <rob.blackbourn@gmail.com>",
