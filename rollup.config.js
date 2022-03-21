@@ -12,14 +12,22 @@ export default [
       {
         name: 'observableGraphqlClient',
         file: 'dist/browser/index.js',
-        format: 'umd'
+        format: 'umd',
+        globals: {
+          rxjs: 'rxjs',
+          '@barejs/graphql-client': 'graphqlClient'
+        }
       },
       {
         name: 'observableGraphqlClient',
         file: 'dist/browser/index.min.js',
         format: 'umd',
         sourcemap: true,
-        plugins: [terser()]
+        plugins: [terser()],
+        globals: {
+          rxjs: 'rxjs',
+          '@barejs/graphql-client': 'graphqlClient'
+        }
       }
     ],
     plugins: [
