@@ -11,7 +11,7 @@ module from the
 [bareASGI](https://github.com/rob-blackbourn/bareASGI)
 python web framework, which provides multiple transports for subscriptions.
 
-Thi is a thin wrapper around
+This is a thin wrapper around
 [@barejs/graphql-client](https://github.com/rob-blackbourn/barejs-graphql-client)
 where more documentation can be found.
 

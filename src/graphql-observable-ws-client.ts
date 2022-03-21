@@ -1,15 +1,15 @@
 import { Observable } from 'rxjs'
-import { graphqlEventSourceSubscriber } from '@barejs/graphql-client'
+import { graphqlWsClient } from '@barejs/graphql-client'
 
-export default function graphqlObservableEventSourceSubscriber(
-  url,
-  init,
-  query,
-  variables,
-  operationName
-) {
+export default function graphqlObservableWsClient<T>(
+  url: RequestInfo,
+  init: RequestInit,
+  query: string,
+  variables: object,
+  operationName: string | null
+): Observable<T> {
   return new Observable(subscriber => {
-    return graphqlEventSourceSubscriber(
+    return graphqlWsClient(
       url,
       init,
       query,
